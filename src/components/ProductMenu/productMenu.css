@@ -1,0 +1,141 @@
+/* src/components/ProductMenu/productMenu.css */
+
+/* Main Container */
+.product-menu-container {
+  width: 100%;
+  max-width: 350px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem 0;
+  font-family: inherit;
+  height: 100%;
+  overflow-y: auto; /* Scrollable if content overflows */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu Item Wrapper */
+.menu-item {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+/* Category Button (Parent) */
+.category-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect on category */
+.category-btn:hover {
+  background-color: #f8fafc;
+  color: #2563eb;
+}
+
+/* Active State for open category */
+.category-btn.active {
+  color: #2563eb;
+  background-color: #eff6ff;
+  border-left: 4px solid #2563eb;
+}
+
+/* Arrow Icon */
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Rotate arrow when open */
+.arrow-icon.open {
+  transform: rotate(180deg);
+}
+
+/* 
+  Sub-menu Container (Child items)
+  We use CSS Grid to achieve a perfectly smooth expand/collapse height animation 
+  without relying on JavaScript calculating scrollHeights.
+*/
+.sub-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+  background-color: #fafafa;
+}
+
+.sub-menu.open {
+  grid-template-rows: 1fr;
+}
+
+/* The inner wrapper must have min-height 0 and overflow hidden for the grid trick to work */
+.sub-menu-inner {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Sub-item Link */
+.sub-item-link {
+  display: block;
+  padding: 0.75rem 1.75rem 0.75rem 2.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* Bullet decoration for sub-item */
+.sub-item-link::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+/* Hover effect on children */
+.sub-item-link:hover {
+  background-color: #f1f5f9;
+  color: #2563eb;
+  padding-left: 2.75rem; /* Slight indentation shift on hover */
+}
+
+.sub-item-link:hover::before {
+  background-color: #2563eb;
+}
+
+/* Mobile responsiveness: ensures it fills width on small screens */
+@media (max-width: 768px) {
+  .product-menu-container {
+    max-width: 100%;
+    border-right: none;
+  }
+}
