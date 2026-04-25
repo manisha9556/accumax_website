@@ -10,6 +10,18 @@ const slides = [
   {
     image: '/pcr_workstation.jpg',
   },
+  {
+    image: '/airshower19.jpg',
+  },
+  {
+    image: '/airshower23.jpg',
+  },
+  {
+    image: '/airshower24.jpg',
+  },
+  {
+    image: '/airshower21.jpg',
+  },
 ];
 
 export default function Hero() {

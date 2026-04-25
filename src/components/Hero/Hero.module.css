@@ -20,9 +20,9 @@
   opacity: 0;
   transform: none;
   transition: opacity 0.7s ease;
-  background-position: 50% 50%;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-color: #06142d;
   pointer-events: none;
 }
