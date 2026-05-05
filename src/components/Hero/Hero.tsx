@@ -7,20 +7,23 @@ const slides = [
   {
     image: '/airshower.png',
   },
+  // {
+  //   image: '/pcr_workstation.jpg',
+  // },
   {
-    image: '/pcr_workstation.jpg',
+    image: '/airshower19.jpeg',
   },
   {
-    image: '/airshower19.jpg',
+    image: '/airshower21.jpeg',
   },
   {
-    image: '/airshower23.jpg',
+    image: '/airshower22.jpeg',
   },
   {
-    image: '/airshower24.jpg',
+    image: '/airshower23.jpeg',
   },
   {
-    image: '/airshower21.jpg',
+    image: '/airshower24.jpeg',
   },
 ];
 
