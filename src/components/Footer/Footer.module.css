@@ -1,6 +1,6 @@
 .footer {
-  background: #020b1a;
-  color: rgba(255,255,255,0.7);
+  background: #ffffff;       
+  color: #111;             
 }
 
 /* CTA Band */
@@ -40,8 +40,10 @@
 }
 
 .ctaBtn {
-  background: #fff;
-  color: var(--primary-dark);
+  /* background: #fff;
+  color: var(--primary-dark); */
+  background: #0a4d8c;      
+  color: #fff;
   padding: 0.85rem 2rem;
   border-radius: 9999px;
   font-weight: 700;
@@ -116,7 +118,8 @@
   font-size: 0.9rem;
   line-height: 1.7;
   margin-bottom: 1.25rem;
-  color: rgba(255,255,255,0.5);
+  color: #555;
+  /* color: rgba(255,255,255,0.5); */
 }
 
 .certBadge {
@@ -136,7 +139,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.95rem;
-  color: #fff;
+  color: #000;
   margin-bottom: 1.25rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -151,12 +154,13 @@
 
 .footerLink {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
+  color: #555;
+  /* color: rgba(255,255,255,0.5); */
   transition: color 0.2s ease;
 }
 
 .footerLink:hover {
-  color: #fff;
+  color: #000;
 }
 
 .contactList {
@@ -171,7 +175,8 @@
   align-items: flex-start;
   gap: 0.6rem;
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
+  color: #555;  
+  /* color: rgba(255,255,255,0.5); */
 }
 
 .contactIcon {
@@ -181,7 +186,8 @@
 
 .divider {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid #e0e0e0;   
+  /* border-top: 1px solid rgba(255,255,255,0.06); */
   margin: 2.5rem 0 1.5rem;
 }
 
@@ -194,5 +200,6 @@
 
 .copy {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.3);
+  color: #888;
+  /* color: rgba(255,255,255,0.3); */
 }

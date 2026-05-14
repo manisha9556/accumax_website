@@ -1,158 +1,309 @@
 'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
-import MegaMenu from './MegaMenu';
 import { menuData } from './MenuData';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDesktopMenu, setActiveDesktopMenu] = useState(null);
-  
-  // Mobile accordion state
-  const [mobileMenuLayer, setMobileMenuLayer] = useState(null); // 'products' or null
-  const [openAccordion, setOpenAccordion] = useState(null); // category ID
+
+  const [activeDesktopMenu, setActiveDesktopMenu] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleMobileLayer = (layerName) => {
-    setMobileMenuLayer(mobileMenuLayer === layerName ? null : layerName);
-  };
-
-  const toggleAccordion = (id) => {
-    setOpenAccordion(openAccordion === id ? null : id);
-  };
-
   return (
+
     <nav className={styles.navbar}>
+
       <div className={styles.navContainer}>
+
         {/* LOGO */}
+
         <Link href="/" className={styles.logo}>
           ACCUMAX
         </Link>
 
-        {/* DESKTOP NAV LINKS */}
+        {/* ================= DESKTOP NAV ================= */}
+
         <div className={styles.navLinks}>
-          <Link href="/" className={styles.navLink}>Home</Link>
-          
-          {/* Mega Menu Trigger (Desktop) */}
-          <div 
+
+          <Link href="/" className={styles.navLink}>
+            Home
+          </Link>
+
+          {/* PRODUCTS */}
+
+          <div
             className={styles.navItem}
-            onMouseEnter={() => {
-              console.log('Mouse entered Products');
-              setActiveDesktopMenu('products');
-            }}
-            onMouseLeave={() => {
-              console.log('Mouse left Products');
-              setActiveDesktopMenu(null);
-            }}
+            onMouseEnter={() => setActiveDesktopMenu(true)}
+            onMouseLeave={() => setActiveDesktopMenu(false)}
           >
+
             <button className={styles.navLink}>
+
               Products
-              <svg 
-                className={`${styles.navArrow} ${activeDesktopMenu === 'products' ? styles.rotateOpen : ''}`} 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
+
+              <svg
+                className={`${styles.navArrow} ${activeDesktopMenu ? styles.rotateOpen : ''}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth="2"
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
+
             </button>
-            {/* Desktop Mega Menu Component - explicitly passed state styling */}
-            <div className={`${styles.megaMenuWrapper} ${activeDesktopMenu === 'products' ? styles.showMegaMenu : ''}`}>
-              <MegaMenu />
-            </div>
+
+            {/* DROPDOWN */}
+
+            {activeDesktopMenu && (
+
+              <div className={styles.dropdownMenu}>
+
+                {menuData.map((menu, i) => (
+
+                  <div
+                    key={i}
+                    className={styles.dropdownColumn}
+                  >
+
+                    {/* MAIN TITLE */}
+
+                    {menu.href ? (
+
+                      <Link
+                        href={menu.href}
+                        className={styles.dropdownTitle}
+                      >
+                        {menu.title}
+                      </Link>
+
+                    ) : (
+
+                      <h4 className={styles.dropdownTitle}>
+                        {menu.title}
+                      </h4>
+
+                    )}
+
+                    {/* SUB MENU */}
+
+                    {menu.children?.map((child, idx) => (
+
+                      <div key={idx}>
+
+                        {/* CHILD DIRECT LINK */}
+
+                        {child.href && (
+
+                          <Link
+                            href={child.href}
+                            className={styles.dropdownLink}
+                          >
+                            {child.title}
+                          </Link>
+
+                        )}
+
+                        {/* NESTED CHILD */}
+
+                        {child.children && (
+
+                          <div className={styles.nestedGroup}>
+
+                            <p className={styles.nestedTitle}>
+                              {child.title}
+                            </p>
+
+                            {child.children.map((sub, s) => (
+
+                              <Link
+                                key={s}
+                                href={sub.href}
+                                className={styles.nestedLink}
+                              >
+                                {sub.title}
+                              </Link>
+
+                            ))}
+
+                          </div>
+
+                        )}
+
+                      </div>
+
+                    ))}
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            )}
+
           </div>
 
-          <Link href="/about" className={styles.navLink}>About Us</Link>
-          <Link href="/contact" className={styles.navLink}>Contact</Link>
+          {/* OTHER MENU */}
+
+          <Link href="/about" className={styles.navLink}>
+            About Us
+          </Link>
+
+          <Link href="/clients" className={styles.navLink}>
+            Client
+          </Link>
+
+          <Link href="/contact" className={styles.navLink}>
+            Contact
+          </Link>
+
+          <Link href="/blogs" className={styles.navLink}>
+            Blogs
+          </Link>
+
         </div>
 
-        {/* MOBILE TOGGLE BUTTON */}
-        <button className={styles.mobileMenuBtn} onClick={toggleMobileMenu}>
-           <span style={{ transform: isMobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}></span>
-           <span style={{ opacity: isMobileMenuOpen ? 0 : 1 }}></span>
-           <span style={{ transform: isMobileMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }}></span>
+        {/* MOBILE BUTTON */}
+
+        <button
+          className={styles.mobileMenuBtn}
+          onClick={toggleMobileMenu}
+        >
+
+          <span></span>
+          <span></span>
+          <span></span>
+
         </button>
 
-        {/* MOBILE MENU DROPDOWN */}
-        <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.isOpen : ''}`}>
-          <Link href="/" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          
-          {/* Products Top-Level Mobile Button */}
-          <div className={styles.mobileNavGroup}>
-            <button 
-              className={styles.mobileNavToggle}
-              onClick={() => toggleMobileLayer('products')}
-            >
-              Products
-              <svg 
-                className={styles.navArrow} 
-                style={{ transform: mobileMenuLayer === 'products' ? 'rotate(180deg)' : 'none' }}
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
+        {/* ================= MOBILE MENU ================= */}
 
-            {/* Inner Mobile Products Layer */}
-            <div className={`${styles.mobileLayerWrapper} ${mobileMenuLayer === 'products' ? styles.isOpen : ''}`}>
-              <div className={styles.mobileLayerInner}>
-                {menuData.map((category) => {
-                  const isOpen = openAccordion === category.id;
-                  return (
-                    <div key={category.id} className={styles.mobileAccordionItem}>
-                      <button 
-                        className={styles.mobileAccordionToggle}
-                        onClick={() => toggleAccordion(category.id)}
+        <div
+          className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.isOpen : ''}`}
+        >
+
+          <Link
+            href="/"
+            className={styles.mobileLink}
+          >
+            Home
+          </Link>
+
+          {/* PRODUCTS */}
+
+          <div className={styles.mobileProducts}>
+
+            <h3 className={styles.mobileHeading}>
+              Products
+            </h3>
+
+            {menuData.map((menu, i) => (
+
+              <div key={i}>
+
+                <p className={styles.mobileCategory}>
+                  {menu.title}
+                </p>
+
+                {/* DIRECT LINK */}
+
+                {menu.href && (
+
+                  <Link
+                    href={menu.href}
+                    className={styles.mobileSubLink}
+                  >
+                    View Product
+                  </Link>
+
+                )}
+
+                {/* CHILDREN */}
+
+                {menu.children?.map((child, idx) => (
+
+                  <div key={idx}>
+
+                    {/* DIRECT CHILD */}
+
+                    {child.href && (
+
+                      <Link
+                        href={child.href}
+                        className={styles.mobileSubLink}
                       >
-                        {category.title}
-                        <svg 
-                          className={styles.navArrow} 
-                          style={{ transform: isOpen ? 'rotate(180deg)' : 'none' }}
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2"
-                        >
-                          <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                      </button>
-                      <div className={`${styles.mobileAccordionContent} ${isOpen ? styles.isOpen : ''}`}>
-                        <div className={styles.mobileAccordionInner}>
-                          <ul className={styles.mobileSubList}>
-                            {category.items.map((item, idx) => (
-                              <li key={idx}>
-                                <Link 
-                                  href={item.href} 
-                                  className={styles.productLink}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        {child.title}
+                      </Link>
+
+                    )}
+
+                    {/* NESTED */}
+
+                    {child.children && (
+
+                      <div className={styles.mobileNested}>
+
+                        <p className={styles.mobileNestedTitle}>
+                          {child.title}
+                        </p>
+
+                        {child.children.map((sub, s) => (
+
+                          <Link
+                            key={s}
+                            href={sub.href}
+                            className={styles.mobileNestedLink}
+                          >
+                            {sub.title}
+                          </Link>
+
+                        ))}
+
                       </div>
-                    </div>
-                  );
-                })}
+
+                    )}
+
+                  </div>
+
+                ))}
+
               </div>
-            </div>
+
+            ))}
+
           </div>
 
-          <Link href="/about" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-          <Link href="/contact" className={styles.navLink} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+          {/* OTHER LINKS */}
+
+          <Link href="/about" className={styles.mobileLink}>
+            About Us
+          </Link>
+
+          <Link href="/clients" className={styles.mobileLink}>
+            Client
+          </Link>
+
+          <Link href="/contact" className={styles.mobileLink}>
+            Contact
+          </Link>
+
+          <Link href="/blogs" className={styles.mobileLink}>
+            Blogs
+          </Link>
+
         </div>
+
       </div>
+
     </nav>
+
   );
 };
 

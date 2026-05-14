@@ -1,0 +1,91 @@
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  min-width: 240px;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 2px 10px rgba(0, 0, 0, 0.05);
+
+  animation: fadeSlide 0.25s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item {
+  position: relative;
+}
+
+/* LINK STYLE */
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #1f2937;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+  border-radius: 6px;
+}
+
+/* HOVER EFFECT */
+.link:hover {
+  background: linear-gradient(90deg, #eff6ff, #e0f2fe);
+  color: #2563eb;
+
+  transform: translateX(4px);
+}
+
+/* ARROW */
+.link::after {
+  content: '›';
+  font-size: 16px;
+  opacity: 0.6;
+  transition: transform 0.2s ease;
+}
+
+.item:hover > .link::after {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+/* SUBMENU */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+
+  transition: all 0.25s ease;
+}
+
+/* SHOW SUBMENU */
+.item:hover > .submenu {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}

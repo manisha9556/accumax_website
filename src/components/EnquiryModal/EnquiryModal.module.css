@@ -1,0 +1,181 @@
+/* OVERLAY BACKDROP */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* MODAL BOX */
+.modal {
+  width: 90%;
+  max-width: 650px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 32px 28px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  animation: modalFade 0.35s ease;
+}
+
+/* ANIMATION */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* CLOSE BUTTON */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* HEADING */
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #0a2540;
+}
+
+.heading span {
+  color: #2c8be3; /* YOUR BRAND BLUE */
+}
+
+/* UNDERLINE */
+.line {
+  width: 120px;
+  height: 3px;
+  background: #2c8be3; /* BLUE instead of red */
+  margin: 12px auto 22px;
+  border-radius: 2px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ROW (2 INPUTS) */
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.row input {
+  flex: 1;
+}
+
+/* INPUT + TEXTAREA */
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cfd8dc;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #f4f7fb;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+/* FOCUS STATE */
+.form input:focus,
+.form textarea:focus {
+  border-color: #2c8be3;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(44, 139, 227, 0.2);
+}
+
+/* TEXTAREA */
+.form textarea {
+  resize: none;
+}
+
+/* BUTTON (BLUE THEME) */
+.btn {
+  margin-top: 10px;
+  padding: 15px;
+  background: linear-gradient(135deg, #2c8be3, #1565c0);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+/* BUTTON HOVER */
+.btn:hover {
+  background: linear-gradient(135deg, #3a9af0, #1a6fd8);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(44, 139, 227, 0.4);
+}
+
+/* BUTTON ACTIVE */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(44, 139, 227, 0.25);
+}
+.successBox {
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.successBox h3 {
+  color: #16a34a;
+  margin-bottom: 10px;
+}
+
+.successBox p {
+  color: #374151;
+  font-size: 14px;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .modal {
+    padding: 24px 18px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}

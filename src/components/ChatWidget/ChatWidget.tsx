@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './ChatWidget.module.css';
 
 type ChatMessage = {
@@ -15,27 +15,96 @@ const initialMessages: ChatMessage[] = [
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // 🔥 NEW
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
 
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
   const unreadCount = useMemo(() => (isOpen ? 0 : 1), [isOpen]);
+
+  // ✅ Auto scroll
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  // 🔥 Popup show after delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 1500); // 1.5 sec delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // 🔥 chatbot logic
+  const getBotReply = (input: string) => {
+    const lower = input.toLowerCase();
+
+    if (
+      lower.includes('contact') ||
+      lower.includes('phone') ||
+      lower.includes('email') ||
+      lower.includes('whatsapp')
+    ) {
+      return `You can contact us:
+📞 +91 83840 62994
+📧 accumax101@gmail.com`;
+    }
+
+    if (lower.includes('hi') || lower.includes('hello')) {
+      return 'Hello! How can we assist you today?';
+    }
+
+    if (lower.includes('product')) {
+      return 'Check "Our Products" section above.';
+    }
+
+    if (lower.includes('price')) {
+      return 'Please contact us for pricing details.';
+    }
+
+    return 'Thanks! Our team will reach you shortly.';
+  };
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const trimmed = inputValue.trim();
     if (!trimmed) return;
 
-    setMessages((current) => [
-      ...current,
-      { id: `user-${Date.now()}`, text: trimmed, author: 'user' },
-      { id: `bot-${Date.now()}-reply`, text: 'Thanks! Our team will reach out shortly.', author: 'bot' },
-    ]);
+    const userMessage: ChatMessage = {
+      id: `user-${Date.now()}`,
+      text: trimmed,
+      author: 'user',
+    };
+
+    const botMessage: ChatMessage = {
+      id: `bot-${Date.now()}`,
+      text: getBotReply(trimmed),
+      author: 'bot',
+    };
+
+    setMessages((prev) => [...prev, userMessage, botMessage]);
     setInputValue('');
   };
 
   return (
     <div className={styles.widget}>
-      <div className={`${styles.panel} ${isOpen ? styles.panelOpen : ''}`} aria-hidden={!isOpen}>
+
+      {/* 🔥 POPUP MESSAGE */}
+      {showPopup && !isOpen && (
+        <div className={styles.popup} onClick={() => {
+          setIsOpen(true);
+          setShowPopup(false);
+        }}>
+          How can we help you?
+        </div>
+      )}
+
+      {/* PANEL */}
+      <div className={`${styles.panel} ${isOpen ? styles.panelOpen : ''}`}>
+
+        {/* HEADER */}
         <div className={styles.header}>
           <div>
             <p className={styles.headerLabel}>Support</p>
@@ -45,33 +114,40 @@ export default function ChatWidget() {
             type="button"
             className={styles.closeButton}
             onClick={() => setIsOpen(false)}
-            aria-label="Close chat"
           >
-            x
+            ×
           </button>
         </div>
 
-        <div className={styles.messages} role="log" aria-live="polite">
+        {/* MESSAGES */}
+        <div className={styles.messages}>
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`${styles.messageRow} ${message.author === 'user' ? styles.messageRowUser : ''}`}
+              className={`${styles.messageRow} ${
+                message.author === 'user' ? styles.messageRowUser : ''
+              }`}
             >
-              <p className={`${styles.messageBubble} ${message.author === 'user' ? styles.messageBubbleUser : ''}`}>
+              <p
+                className={`${styles.messageBubble} ${
+                  message.author === 'user' ? styles.messageBubbleUser : ''
+                }`}
+              >
                 {message.text}
               </p>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
 
+        {/* INPUT */}
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="text"
             value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
+            onChange={(e) => setInputValue(e.target.value)}
             className={styles.input}
             placeholder="Type your message..."
-            aria-label="Type your message"
           />
           <button type="submit" className={styles.sendButton}>
             Send
@@ -79,15 +155,37 @@ export default function ChatWidget() {
         </form>
       </div>
 
+      {/* FAB */}
       <button
         type="button"
         className={styles.fab}
-        onClick={() => setIsOpen((current) => !current)}
-        aria-label={isOpen ? 'Close chat widget' : 'Open chat widget'}
+        onClick={() => {
+          setIsOpen((prev) => !prev);
+          setShowPopup(false); // hide popup
+        }}
       >
-        <span className={styles.fabIcon}>Chat</span>
+        Chat
         {unreadCount > 0 && <span className={styles.badge}>{unreadCount}</span>}
       </button>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #1e293b;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.logo {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* MENU ITEM */
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.menuItem:hover {
+  background: #334155;
+}
+
+.menuContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ICON */
+.icon {
+  font-size: 16px;
+}
+
+/* ACTIVE */
+.active {
+  background: #2563eb;
+}
+
+/* ARROW */
+.arrow {
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* SUB MENU */
+.subMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding-left: 15px;
+}
+
+.show {
+  max-height: 500px;
+}
+
+/* SUB ITEM */
+.subItem {
+  display: block;
+  padding: 8px;
+  color: #cbd5f5;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.subItem:hover {
+  color: white;
+  background: #475569;
+  border-radius: 5px;
+}
+
+/* ACTIVE SUB */
+.activeSub {
+  background: #3b82f6;
+  color: white;
+  border-radius: 5px;
+}

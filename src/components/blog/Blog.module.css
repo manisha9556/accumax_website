@@ -1,0 +1,397 @@
+/* Blog.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.searchInput, .categorySelect {
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.searchInput:focus, .categorySelect:focus {
+  border-color: #007bff;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 300px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.statusBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 10;
+}
+
+.statusActive {
+  background-color: #28a745;
+}
+
+.statusInactive {
+  background-color: #dc3545;
+}
+
+.cardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.category {
+  font-size: 0.85rem;
+  color: #007bff;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  color: #222;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.readMoreBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.readMoreBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Skeleton Styles */
+.skeletonCard {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.skeletonImage {
+  width: 100%;
+  height: 200px;
+  background: #eee;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonContent {
+  padding: 20px;
+}
+
+.skeletonLine {
+  height: 15px;
+  background: #eee;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonLine.short {
+  width: 40%;
+}
+
+.skeletonLine.title {
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.skeletonBtn {
+  height: 40px;
+  width: 120px;
+  background: #eee;
+  border-radius: 6px;
+  margin-top: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pageBtn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #f0f0f0;
+}
+
+.pageBtn.active {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .searchInput, .categorySelect {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.pageWrapper {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* LEFT */
+.mainContent {
+  flex: 3;
+}
+
+/* RIGHT */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* BOX */
+.sidebarBox {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.recentList {
+  list-style: none;
+  padding: 0;
+}
+
+.recentList li {
+  margin-bottom: 10px;
+}
+
+.recentList a {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+.downloadBtn {
+  background: orange;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.input, .textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.submitBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .pageWrapper {
+    flex-direction: column;
+  }
+}
+
+.catalogImg {
+  width: 80%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.catalogBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.viewBtn {
+  flex: 1;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.downloadBtn {
+  flex: 1;
+  background: orange;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.successBox {
+  padding: 1.2rem;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.12),
+      rgba(59, 130, 246, 0.08)
+    );
+
+  border: 1px solid rgba(16,185,129,0.22);
+}
+
+.successBox h4 {
+  margin-bottom: 0.5rem;
+
+  color: #059669;
+}
+
+.successBox p {
+  color: #475569;
+
+  line-height: 1.7;
+}

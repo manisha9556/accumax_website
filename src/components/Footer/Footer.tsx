@@ -48,7 +48,7 @@ export default function Footer() {
           <div className={styles.brand}>
             <div className={styles.brandLogoWrap}>
               <Image
-                src="/accumax-india1.png"
+                src="/assets/accumax-india1.png"
                 alt="Accumax India"
                 width={180}
                 height={48}

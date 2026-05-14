@@ -1,0 +1,37 @@
+.wrapper {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 99999;
+    /* 🔥 HIGH Z-INDEX (important) */
+    pointer-events: auto;
+}
+
+.button {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    /* 🔥 ensures click feel */
+    pointer-events: auto;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    z-index: 2;
+    pointer-events: none;
+    /* 🔥 icon click block na kare */
+}
