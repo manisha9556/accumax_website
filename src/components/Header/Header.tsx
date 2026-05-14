@@ -36,12 +36,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => (document.body.style.overflow = '');
-  }, [menuOpen]);
+useEffect(() => {
+  document.body.style.overflow = menuOpen ? 'hidden' : '';
 
-  const handleNavClick = (href) => {
+  return () => {
+    document.body.style.overflow = '';
+  };
+}, [menuOpen]);
+
+  const handleNavClick = (href: string) => {
     setActiveLink(href);
     setMenuOpen(false);
     setMobileProductsOpen(false);
