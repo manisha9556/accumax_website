@@ -160,12 +160,7 @@ export default function BlogPage() {
 
       <Header />
 
-      <div
-        className={styles.pageWrapper}
-        style={{
-          paddingTop: "170px"
-        }}
-      >
+      <div className={styles.pageWrapper}>
 
         {/* LEFT CONTENT */}
         <div className={styles.mainContent}>

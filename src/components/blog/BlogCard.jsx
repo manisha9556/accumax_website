@@ -5,7 +5,7 @@ export default function BlogCard({ blog }) {
 
   return (
 
-    <div className={styles.card}>
+    <Link href={`/blogs/${blog._id}`} className={styles.card} style={{ textDecoration: 'none' }}>
 
       <img
         src={blog.images?.[0] || "/no-image.png"}
@@ -16,9 +16,7 @@ export default function BlogCard({ blog }) {
       <div className={styles.cardBody}>
 
         <span className={styles.category}>
-
           {blog.category?.name || "BLOG"}
-
         </span>
 
         <h2 className={styles.cardTitle}>
@@ -26,21 +24,15 @@ export default function BlogCard({ blog }) {
         </h2>
 
         <p className={styles.cardDesc}>
-
           {blog.description?.slice(0, 120)}...
-
         </p>
 
-        <Link href={`/blogs/${blog._id}`}>
-
-          <button className={styles.readBtn}>
-            Read More
-          </button>
-
-        </Link>
+        <span className={styles.readBtn}>
+          Read More
+        </span>
 
       </div>
 
-    </div>
+    </Link>
   );
 }

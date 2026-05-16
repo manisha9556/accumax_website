@@ -8,6 +8,12 @@ import styles from './Header.module.css';
 import Dropdown from '../Dropdown/Dropdown';
 import { menuData } from '../Navbar/MenuData';
 
+type MenuItem = {
+  title: string;
+  href?: string;
+  children?: MenuItem[];
+};
+
 export default function Header() {
   const pathname = usePathname();
 
@@ -15,6 +21,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [productMenu, setProductMenu] = useState<MenuItem[]>(menuData as MenuItem[]);
 
   // ✅ REQUIRED for dropdown
   const [productsOpen, setProductsOpen] = useState(false);
@@ -36,6 +43,29 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadProductMenu = async () => {
+      try {
+        const res = await fetch('/api/product-menu', { cache: 'no-store' });
+        const result = await res.json();
+
+        if (isMounted && result.success && Array.isArray(result.data)) {
+          setProductMenu(result.data);
+        }
+      } catch (err) {
+        console.error('Product menu fallback active:', err);
+      }
+    };
+
+    loadProductMenu();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
 useEffect(() => {
   document.body.style.overflow = menuOpen ? 'hidden' : '';
 
@@ -54,6 +84,34 @@ useEffect(() => {
     setMenuOpen(false);
     setMobileProductsOpen(false);
   };
+
+  const renderDrawerProducts = (items: MenuItem[], parentKey = 'product') =>
+    items.map((item, index) => {
+      const key = `${parentKey}-${index}`;
+
+      return (
+        <div key={key}>
+          {item.href ? (
+            <Link
+              href={item.href}
+              className={styles.drawerProductLink}
+              onClick={closeMobileMenu}
+            >
+              {item.title}
+            </Link>
+          ) : (
+            <span
+              className={styles.drawerProductLink}
+              style={{ fontWeight: 700, color: '#1e293b' }}
+            >
+              {item.title}
+            </span>
+          )}
+
+          {item.children && renderDrawerProducts(item.children, key)}
+        </div>
+      );
+    });
 
   return (
     <>
@@ -101,7 +159,7 @@ useEffect(() => {
 
               {productsOpen && (
                 <div style={{ position: 'absolute', top: '100%', left: 0, zIndex: 999 }}>
-                  <Dropdown items={menuData} />
+                  <Dropdown items={productMenu} />
                 </div>
               )}
             </div>
@@ -153,11 +211,21 @@ useEffect(() => {
         <nav className={styles.drawerNav}>
 
           <button
-            className={styles.drawerLink}
+            className={`${styles.drawerLink} ${styles.drawerProductsToggle}`}
             onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
           >
             Our Products
           </button>
+
+          <div
+            className={`${styles.drawerProductsPanel} ${
+              mobileProductsOpen ? styles.drawerProductsPanelOpen : ''
+            }`}
+          >
+            <div className={styles.drawerProductsPanelInner}>
+              {renderDrawerProducts(productMenu)}
+            </div>
+          </div>
 
           {navLinks.map((link) => (
             <Link

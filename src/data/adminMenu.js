@@ -16,7 +16,7 @@ export const adminMenu = [
     title: "Category Management",
     icon: FaBox,
     children: [
-      { title: "Manage Category", path: "/admin/category" },
+      { title: "Product Categories", path: "/admin/product-category" },
       { title: "Manage Products", path: "/admin/products" }
     ]
   },

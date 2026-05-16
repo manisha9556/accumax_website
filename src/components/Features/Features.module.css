@@ -1,6 +1,7 @@
 .features {
   padding: 6rem 0;
   background: var(--background);
+  scroll-margin-top: var(--nav-height);
 }
 
 .container {

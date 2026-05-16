@@ -117,7 +117,7 @@ export default function BlogDetailClient({ blog }) {
             {/* TITLE */}
             <h1
               style={{
-                fontSize: "48px",
+                fontSize: "36px",
                 fontWeight: "800",
                 marginBottom: "20px",
                 color: "#0f172a",
@@ -133,9 +133,9 @@ export default function BlogDetailClient({ blog }) {
                 style={{
                   background: "#dbeafe",
                   color: "#1d4ed8",
-                  padding: "10px 18px",
+                  padding: "6px 12px",
                   borderRadius: "999px",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontWeight: "700",
                 }}
               >
@@ -174,8 +174,8 @@ export default function BlogDetailClient({ blog }) {
                       style={{
                         width: "100%",
                         maxWidth: "650px",
-                        maxHeight: "520px",
-                        objectFit: "contain",
+                        maxHeight: "400px",
+                        objectFit: "cover",
                         borderRadius: "14px",
                       }}
                     />
@@ -191,8 +191,8 @@ export default function BlogDetailClient({ blog }) {
             {/* DESCRIPTION */}
             <div
               style={{
-                fontSize: "18px",
-                lineHeight: "2",
+                fontSize: "16px",
+                lineHeight: "1.8",
                 color: "#334155",
               }}
             >

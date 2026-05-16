@@ -6,12 +6,9 @@
   display: flex;
   gap: 30px;
 
-  max-width: 1400px;
-
+  max-width: 1280px;
   margin: auto;
-
-  padding: 180px 20px 60px;
-
+  padding: calc(var(--nav-height) + 60px) 1.5rem 60px;
   align-items: flex-start;
 }
 
@@ -24,9 +21,9 @@
 }
 
 .title {
-  font-size: 56px;
+  font-size: 42px;
   font-weight: 800;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   color: #1e293b;
 }
 
@@ -38,7 +35,7 @@
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(320px, 1fr));
+    repeat(auto-fit, minmax(280px, 1fr));
 
   gap: 30px;
 }
@@ -72,81 +69,58 @@
 
 .cardImg {
   width: 100%;
-
-  height: 260px;
-
+  height: 200px;
   object-fit: cover;
-
   display: block;
 }
 
 /* BODY */
 
 .cardBody {
-  padding: 22px;
+  padding: 18px;
 }
 
 /* CATEGORY */
 
 .category {
-  font-size: 13px;
-
+  font-size: 12px;
   font-weight: 700;
-
   color: #2563eb;
-
   text-transform: uppercase;
-
-  margin-bottom: 10px;
-
+  margin-bottom: 8px;
   display: inline-block;
 }
 
 /* TITLE */
 
 .cardTitle {
-  font-size: 34px;
-
+  font-size: 20px;
   font-weight: 700;
-
   color: #0f172a;
-
-  margin-bottom: 14px;
-
+  margin-bottom: 10px;
   line-height: 1.4;
 }
 
 /* DESCRIPTION */
 
 .cardDesc {
-  font-size: 17px;
-
+  font-size: 14.5px;
   color: #475569;
-
-  line-height: 1.8;
-
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 /* BUTTON */
 
 .readBtn {
   background: #2563eb;
-
   color: white;
-
   border: none;
-
-  padding: 12px 22px;
-
-  border-radius: 10px;
-
+  padding: 10px 18px;
+  border-radius: 8px;
   cursor: pointer;
-
-  font-size: 15px;
-
+  font-size: 14px;
   font-weight: 600;
-
   transition: 0.3s;
 }
 
@@ -186,10 +160,8 @@
 }
 
 .sidebarBox h3 {
-  font-size: 34px;
-
-  margin-bottom: 18px;
-
+  font-size: 20px;
+  margin-bottom: 16px;
   color: #0f172a;
 }
 
@@ -223,10 +195,8 @@
 
 .recentList a {
   color: #2563eb;
-
   text-decoration: none;
-
-  font-size: 17px;
+  font-size: 15px;
 }
 
 /* =========================
@@ -389,10 +359,8 @@
 @media (max-width: 992px) {
 
   .pageWrapper {
-
     flex-direction: column;
-
-    padding-top: 150px;
+    padding-top: calc(var(--nav-height) + 40px);
   }
 
   .sidebar {
@@ -401,8 +369,7 @@
   }
 
   .title {
-
-    font-size: 42px;
+    font-size: 32px;
   }
 
 }

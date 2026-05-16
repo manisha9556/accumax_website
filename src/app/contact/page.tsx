@@ -1,6 +1,8 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 import styles from './page.module.css';
 
 export default function ContactPage() {
@@ -57,7 +59,9 @@ export default function ContactPage() {
   };
 
   return (
-    <main className={styles.page}>
+    <>
+      <Header />
+      <main className={styles.page}>
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -213,5 +217,7 @@ export default function ContactPage() {
       </section>
 
     </main>
+      <Footer />
+    </>
   );
 }
