@@ -5,100 +5,78 @@ import Footer from '@/components/Footer/Footer';
 import ChatWidget from '@/components/ChatWidget/ChatWidget';
 import ProductSidebar from '@/components/ProductSidebar/ProductSidebar';
 
-import styles from '../../page.module.css';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Dynamic Pass Box Straight Doors | Accumax India',
-
+  title: 'Cross Over Bench | Accumax India',
   description:
-    'Dynamic Pass Box systems by Accumax India designed for material transfer in cleanroom environments.',
+    'Cross Over Bench manufactured by Accumax India for cleanroom contamination control and personnel changeover areas.',
 };
 
 const specifications = [
   {
-    label: 'Body Material',
-    value:
-      'Stainless Steel 304 / Stainless Steel 316 / Powder Coated GI',
-  },
-
-  {
-    label: 'Door Type',
-    value:
-      'Interlocked Doors with Magnetic Locking',
-  },
-
-  {
     label: 'Construction',
     value:
-      'Double Wall Construction',
+      'Stainless Steel 304 / Stainless Steel 316',
   },
-
-  {
-    label: 'Viewing Panel',
-    value:
-      'Transparent Toughened Glass',
-  },
-
-  {
-    label: 'UV Light',
-    value:
-      'Optional UV Germicidal Light',
-  },
-
-  {
-    label: 'Operation',
-    value:
-      'Manual / Automatic',
-  },
-
-  {
-    label: 'Power Supply',
-    value:
-      '220V AC Single Phase',
-  },
-
   {
     label: 'Finish',
     value:
       'Matt / Mirror Finish',
   },
-
+  {
+    label: 'Bench Type',
+    value:
+      'Seating With Shoe Change Partition',
+  },
+  {
+    label: 'Design',
+    value:
+      'Cleanroom Compatible Hygienic Design',
+  },
+  {
+    label: 'Load Capacity',
+    value:
+      'Heavy Duty Industrial Structure',
+  },
+  {
+    label: 'Cleaning',
+    value:
+      'Easy To Clean Smooth Surface',
+  },
   {
     label: 'Applications',
     value:
-      'Pharmaceutical, Electronics, Laboratories, Food Industries',
+      'Cleanrooms / Pharmaceutical / Food Industries',
+  },
+  {
+    label: 'Customization',
+    value:
+      'Available In Custom Sizes',
   },
 ];
 
 const features = [
-  'Smooth contamination-free material transfer',
-
-  'Magnetic door interlocking system',
-
-  'Heavy-duty stainless steel construction',
-
+  'Cleanroom compatible hygienic structure',
+  'Heavy duty stainless steel construction',
   'Easy cleaning and maintenance',
-
+  'Smooth contamination-free surface finish',
+  'Strong partition design for personnel crossover',
   'Corrosion resistant body',
-
-  'Optional UV sterilization system',
+  'Custom size options available',
 ];
 
 const applications = [
   'Pharmaceutical cleanrooms',
-
-  'Research laboratories',
-
-  'Electronics manufacturing',
-
   'Food processing industries',
-
   'Biotechnology facilities',
-
-  'Sterile production environments',
+  'Research laboratories',
+  'Electronics manufacturing',
+  'Hospitals and medical centres',
+  'Controlled contamination zones',
 ];
 
-export default function DynamicStraightDoor() {
+export default function CrossOverBenchPage() {
 
   return (
 
@@ -117,8 +95,8 @@ export default function DynamicStraightDoor() {
             <div className={styles.imageWrap}>
 
               <img
-                src="/assets/products/DynamicStraightEntry.jpeg"
-                alt="Dynamic Pass Box Straight Doors"
+                src="/assets/products/cross_over_bench.jpeg"
+                alt="Cross Over Bench"
                 className={styles.heroImage}
               />
 
@@ -131,13 +109,14 @@ export default function DynamicStraightDoor() {
               </div>
 
               <h1 className={styles.title}>
-                Dynamic Pass Box Straight Doors
+                Cross Over Bench
               </h1>
 
               <p className={styles.lead}>
-                Dynamic Pass Boxes are specially designed for safe and efficient
-                material transfer between controlled cleanroom environments
-                without allowing contaminants to enter the clean area.
+                Cross Over Benches are designed for cleanroom
+                personnel changeover areas to minimize
+                contamination transfer between controlled
+                and uncontrolled zones.
               </p>
 
             </div>
@@ -166,21 +145,32 @@ export default function DynamicStraightDoor() {
                     </div>
 
                     <h2 className={styles.sectionTitle}>
-                      Reliable contamination control solution
+                      Cleanroom Cross Over Bench System
                     </h2>
 
                   </div>
 
                   <p className={styles.description}>
-                    Accumax India Dynamic Pass Boxes are manufactured using premium
-                    quality stainless steel and advanced engineering standards to
-                    ensure safe material transfer between cleanroom zones.
+                    Accumax India Cross Over Benches are specially
+                    designed for cleanroom changeover areas where
+                    personnel move between different contamination
+                    zones while changing footwear and garments.
                   </p>
 
                   <p className={styles.description}>
-                    These pass boxes help minimize operator movement and significantly
-                    reduce the risk of airborne contamination in pharmaceutical,
-                    biotechnology, electronics, and laboratory environments.
+                    These benches help maintain contamination control
+                    standards by separating clean and non-clean areas
+                    efficiently. The hygienic stainless steel design
+                    ensures durability, easy cleaning, and long-term
+                    performance in critical environments.
+                  </p>
+
+                  <p className={styles.description}>
+                    Cross Over Benches are widely used in
+                    pharmaceutical industries, hospitals,
+                    biotechnology facilities, food industries,
+                    and research laboratories where strict
+                    cleanroom protocols are followed.
                   </p>
 
                 </div>

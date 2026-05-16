@@ -5,100 +5,88 @@ import Footer from '@/components/Footer/Footer';
 import ChatWidget from '@/components/ChatWidget/ChatWidget';
 import ProductSidebar from '@/components/ProductSidebar/ProductSidebar';
 
-import styles from '../../page.module.css';
+import styles from '../page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Dynamic Pass Box Straight Doors | Accumax India',
-
+  title: 'Biosafety Cabinet Class II Type A1/A2 | Accumax India',
   description:
-    'Dynamic Pass Box systems by Accumax India designed for material transfer in cleanroom environments.',
+    'Biosafety Cabinet Class II Type A1/A2 manufactured by Accumax India for contamination-free laboratory environments.',
 };
 
 const specifications = [
   {
-    label: 'Body Material',
+    label: 'Cabinet Construction',
     value:
-      'Stainless Steel 304 / Stainless Steel 316 / Powder Coated GI',
+      'Stainless Steel 304 Interior With Powder Coated Exterior',
   },
-
   {
-    label: 'Door Type',
+    label: 'HEPA Filter',
     value:
-      'Interlocked Doors with Magnetic Locking',
+      '99.97% Efficient At 0.3 Micron',
   },
-
   {
-    label: 'Construction',
+    label: 'Airflow System',
     value:
-      'Double Wall Construction',
+      'Vertical Laminar Downflow',
   },
-
   {
-    label: 'Viewing Panel',
+    label: 'Front Access',
     value:
-      'Transparent Toughened Glass',
+      'Motorized Toughened Glass Sash',
   },
-
+  {
+    label: 'Noise Level',
+    value:
+      'Less Than 65 dB',
+  },
+  {
+    label: 'Illumination',
+    value:
+      'LED Light',
+  },
   {
     label: 'UV Light',
     value:
-      'Optional UV Germicidal Light',
+      'UV Germicidal Lamp',
   },
-
   {
-    label: 'Operation',
+    label: 'Control Panel',
     value:
-      'Manual / Automatic',
+      'Digital Display With Safety Alarm',
   },
-
   {
     label: 'Power Supply',
     value:
       '220V AC Single Phase',
   },
-
-  {
-    label: 'Finish',
-    value:
-      'Matt / Mirror Finish',
-  },
-
   {
     label: 'Applications',
     value:
-      'Pharmaceutical, Electronics, Laboratories, Food Industries',
+      'Microbiology / Pharmaceutical / Biotechnology Labs',
   },
 ];
 
 const features = [
-  'Smooth contamination-free material transfer',
-
-  'Magnetic door interlocking system',
-
-  'Heavy-duty stainless steel construction',
-
-  'Easy cleaning and maintenance',
-
-  'Corrosion resistant body',
-
-  'Optional UV sterilization system',
+  'High efficiency HEPA filtration system',
+  'Personnel and product protection',
+  'Low noise operation',
+  'UV germicidal sterilization',
+  'Digital safety control system',
+  'Energy efficient airflow system',
+  'Ergonomic laboratory design',
 ];
 
 const applications = [
-  'Pharmaceutical cleanrooms',
-
-  'Research laboratories',
-
-  'Electronics manufacturing',
-
-  'Food processing industries',
-
-  'Biotechnology facilities',
-
-  'Sterile production environments',
+  'Microbiology laboratories',
+  'Pharmaceutical industries',
+  'Biotechnology research',
+  'Medical research centres',
+  'Pathology laboratories',
+  'Clinical testing labs',
+  'Cleanroom laboratory environments',
 ];
 
-export default function DynamicStraightDoor() {
+export default function BiosafetyCabinetA1A2Page() {
 
   return (
 
@@ -117,8 +105,8 @@ export default function DynamicStraightDoor() {
             <div className={styles.imageWrap}>
 
               <img
-                src="/assets/products/DynamicStraightEntry.jpeg"
-                alt="Dynamic Pass Box Straight Doors"
+                src="/assets/products/biosafteyCabinetA1_A2.jpeg"
+                alt="Biosafety Cabinet Class II Type A1/A2"
                 className={styles.heroImage}
               />
 
@@ -131,13 +119,14 @@ export default function DynamicStraightDoor() {
               </div>
 
               <h1 className={styles.title}>
-                Dynamic Pass Box Straight Doors
+                Biosafety Cabinet Class II Type A1/A2
               </h1>
 
               <p className={styles.lead}>
-                Dynamic Pass Boxes are specially designed for safe and efficient
-                material transfer between controlled cleanroom environments
-                without allowing contaminants to enter the clean area.
+                Biosafety Cabinets are designed to provide
+                personnel, product, and environmental protection
+                during laboratory handling of sensitive biological
+                materials and contaminants.
               </p>
 
             </div>
@@ -166,21 +155,33 @@ export default function DynamicStraightDoor() {
                     </div>
 
                     <h2 className={styles.sectionTitle}>
-                      Reliable contamination control solution
+                      Biosafety Cabinet Class II Type A1/A2
                     </h2>
 
                   </div>
 
                   <p className={styles.description}>
-                    Accumax India Dynamic Pass Boxes are manufactured using premium
-                    quality stainless steel and advanced engineering standards to
-                    ensure safe material transfer between cleanroom zones.
+                    Accumax India Biosafety Cabinets Class II
+                    Type A1/A2 are specially designed to provide
+                    superior protection for laboratory personnel,
+                    products, and the environment during biological
+                    research and testing operations.
                   </p>
 
                   <p className={styles.description}>
-                    These pass boxes help minimize operator movement and significantly
-                    reduce the risk of airborne contamination in pharmaceutical,
-                    biotechnology, electronics, and laboratory environments.
+                    These cabinets utilize advanced HEPA filtration
+                    systems and vertical laminar airflow technology
+                    to maintain sterile working conditions and
+                    prevent contamination during handling of
+                    hazardous biological materials.
+                  </p>
+
+                  <p className={styles.description}>
+                    Biosafety Cabinets are widely used in
+                    microbiology laboratories, pharmaceutical
+                    industries, biotechnology research centres,
+                    hospitals, and pathology laboratories where
+                    contamination control is critical.
                   </p>
 
                 </div>

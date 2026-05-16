@@ -43,12 +43,12 @@ export const menuData = [
 
         {
           title: "Straight Doors",
-          href: "/products/pass-box/dynamic/straight"
+          href: "/products/pass-box/dynamic/straight-doors"
         },
 
         {
           title: "L-Shape Doors",
-          href: "/products/pass-box/dynamic/l-shape-doors "
+          href: "/products/pass-box/dynamic/l-shape-doors"
         }
 
       ]

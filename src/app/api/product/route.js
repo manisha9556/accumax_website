@@ -25,6 +25,17 @@ export async function POST(req) {
     const description = formData.get("description");
 
     const files = formData.getAll("images");
+    if (
+  !title ||
+  !slug ||
+  !category ||
+  !description
+) {
+  return Response.json({
+    success: false,
+    message: "All fields required"
+  });
+}
 
     let imagePaths = [];
 

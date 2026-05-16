@@ -16,6 +16,15 @@ export default function AddProduct() {
 
   // ✅ SUBMIT
   const handleSubmit = async () => {
+    if (
+  !form.title ||
+  !form.slug ||
+  !form.category ||
+  !form.description
+) {
+  alert("Please fill all fields");
+  return;
+}
 
     const formData = new FormData();
 
@@ -84,23 +93,32 @@ export default function AddProduct() {
       </h1>
 
       {/* TITLE */}
-      <input
-        placeholder="Product Title"
-        value={form.title}
-        onChange={(e) =>
-          setForm({
-            ...form,
-            title: e.target.value
-          })
-        }
-        style={{
-          width: '100%',
-          padding: '14px',
-          marginBottom: '15px',
-          border: '1px solid #ddd',
-          borderRadius: '8px'
-        }}
-      />
+     <input
+  placeholder="Product Title"
+  value={form.title}
+  onChange={(e) => {
+
+    const value = e.target.value;
+
+    setForm({
+      ...form,
+
+      title: value,
+
+      slug: value
+        .toLowerCase()
+        .replaceAll(" ", "-")
+        .replace(/[^\w-]+/g, "")
+    });
+  }}
+  style={{
+    width: '100%',
+    padding: '14px',
+    marginBottom: '15px',
+    border: '1px solid #ddd',
+    borderRadius: '8px'
+  }}
+/>
 
       {/* SLUG */}
       <input

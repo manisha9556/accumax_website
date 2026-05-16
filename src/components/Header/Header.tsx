@@ -78,7 +78,7 @@ useEffect(() => {
           {/* LOGO */}
           <Link href="/" className={styles.logo}>
             <Image
-              src="/accumax-india1.png"
+              src="/assets/accumax-india1.png"
               alt="Accumax India"
               width={180}
               height={48}
@@ -143,7 +143,7 @@ useEffect(() => {
 
         <div className={styles.drawerLogoWrap}>
           <Image
-            src="/accumax-india1.png"
+            src="/assets/accumax-india1.png"
             alt="Accumax India"
             width={160}
             height={48}

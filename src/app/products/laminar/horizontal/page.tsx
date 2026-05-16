@@ -5,100 +5,88 @@ import Footer from '@/components/Footer/Footer';
 import ChatWidget from '@/components/ChatWidget/ChatWidget';
 import ProductSidebar from '@/components/ProductSidebar/ProductSidebar';
 
-import styles from '../../page.module.css';
+import styles from '../page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Dynamic Pass Box Straight Doors | Accumax India',
-
+  title: 'Horizontal Laminar Air Flow Cabinet | Accumax India',
   description:
-    'Dynamic Pass Box systems by Accumax India designed for material transfer in cleanroom environments.',
+    'Horizontal Laminar Air Flow Cabinet manufactured by Accumax India for contamination-free cleanroom environments.',
 };
 
 const specifications = [
   {
-    label: 'Body Material',
+    label: 'MOC Cabinet',
     value:
-      'Stainless Steel 304 / Stainless Steel 316 / Powder Coated GI',
+      'Wooden Laminated / Mild Steel Powder Coated / Stainless Steel',
   },
-
   {
-    label: 'Door Type',
+    label: 'Main Filter',
     value:
-      'Interlocked Doors with Magnetic Locking',
+      'HEPA Filter (99.97% Efficient At 0.3 Micron Particles)',
   },
-
   {
-    label: 'Construction',
+    label: 'Pre Filter',
     value:
-      'Double Wall Construction',
+      'Washable Synthetic Pre-Filter',
   },
-
   {
-    label: 'Viewing Panel',
+    label: 'Sterilization',
     value:
-      'Transparent Toughened Glass',
+      'UV Germicidal Tube',
   },
-
   {
-    label: 'UV Light',
+    label: 'Illumination',
     value:
-      'Optional UV Germicidal Light',
+      'Fluorescent Tube',
   },
-
   {
-    label: 'Operation',
+    label: 'Front Door',
     value:
-      'Manual / Automatic',
+      'Sliding Door Plexiglass',
   },
-
   {
-    label: 'Power Supply',
+    label: 'Manometer',
     value:
-      '220V AC Single Phase',
+      'Analogue Type',
   },
-
   {
-    label: 'Finish',
+    label: 'Working Bench Size',
     value:
-      'Matt / Mirror Finish',
+      '600x600x600mm, 900x600x600mm, 1200x600x600mm, 1800x600x600mm',
   },
-
   {
-    label: 'Applications',
+    label: 'HEPA Filter',
     value:
-      'Pharmaceutical, Electronics, Laboratories, Food Industries',
+      '1 / 2 HEPA Filters',
+  },
+  {
+    label: 'Electric Supply',
+    value:
+      'AC 230V, 50/60Hz',
   },
 ];
 
 const features = [
-  'Smooth contamination-free material transfer',
-
-  'Magnetic door interlocking system',
-
-  'Heavy-duty stainless steel construction',
-
-  'Easy cleaning and maintenance',
-
-  'Corrosion resistant body',
-
-  'Optional UV sterilization system',
+  'Horizontal laminar clean airflow',
+  'High efficiency HEPA filtration',
+  'Low noise motor blower assembly',
+  'UV germicidal tube support',
+  'Contamination-free sterile workspace',
+  'Durable stainless steel construction',
+  'Easy maintenance and cleaning',
 ];
 
 const applications = [
-  'Pharmaceutical cleanrooms',
-
-  'Research laboratories',
-
-  'Electronics manufacturing',
-
-  'Food processing industries',
-
+  'Pharmaceutical laboratories',
+  'Microbiology research labs',
+  'Electronics assembly',
+  'Medical research centres',
+  'Food processing industry',
   'Biotechnology facilities',
-
-  'Sterile production environments',
+  'Cleanroom environments',
 ];
 
-export default function DynamicStraightDoor() {
+export default function HorizontalLaminarPage() {
 
   return (
 
@@ -107,7 +95,7 @@ export default function DynamicStraightDoor() {
 
       <main className={styles.page}>
 
-        {/* HERO SECTION */}
+        {/* HERO */}
         <section className={styles.hero}>
 
           <div className={styles.overlay} />
@@ -117,8 +105,8 @@ export default function DynamicStraightDoor() {
             <div className={styles.imageWrap}>
 
               <img
-                src="/assets/products/DynamicStraightEntry.jpeg"
-                alt="Dynamic Pass Box Straight Doors"
+                src="/assets/products/horizontal_laminar_air_flow.jpeg"
+                alt="Horizontal Laminar Air Flow Cabinet"
                 className={styles.heroImage}
               />
 
@@ -131,13 +119,13 @@ export default function DynamicStraightDoor() {
               </div>
 
               <h1 className={styles.title}>
-                Dynamic Pass Box Straight Doors
+                Horizontal Laminar Air Flow Cabinet
               </h1>
 
               <p className={styles.lead}>
-                Dynamic Pass Boxes are specially designed for safe and efficient
-                material transfer between controlled cleanroom environments
-                without allowing contaminants to enter the clean area.
+                Horizontal Laminar Air Flow Cabinets are designed
+                to provide sterile particle-free airflow for
+                laboratories and cleanroom environments.
               </p>
 
             </div>
@@ -166,21 +154,29 @@ export default function DynamicStraightDoor() {
                     </div>
 
                     <h2 className={styles.sectionTitle}>
-                      Reliable contamination control solution
+                      Horizontal Laminar Air Flow System
                     </h2>
 
                   </div>
 
                   <p className={styles.description}>
-                    Accumax India Dynamic Pass Boxes are manufactured using premium
-                    quality stainless steel and advanced engineering standards to
-                    ensure safe material transfer between cleanroom zones.
+                    Horizontal Laminar Air Flow Cabinets are specially
+                    engineered to create contamination-free working
+                    environments using highly efficient HEPA filtered
+                    horizontal airflow systems.
                   </p>
 
                   <p className={styles.description}>
-                    These pass boxes help minimize operator movement and significantly
-                    reduce the risk of airborne contamination in pharmaceutical,
-                    biotechnology, electronics, and laboratory environments.
+                    These cabinets maintain sterile airflow across the
+                    working area and protect sensitive samples and
+                    laboratory processes from airborne contamination.
+                  </p>
+
+                  <p className={styles.description}>
+                    Accumax India Horizontal Laminar Air Flow systems
+                    are widely used in pharmaceutical industries,
+                    microbiology laboratories, biotechnology facilities,
+                    electronics manufacturing, and research centres.
                   </p>
 
                 </div>

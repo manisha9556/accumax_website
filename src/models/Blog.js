@@ -4,10 +4,16 @@ const BlogSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, trim: true },
 
-   category: {
-  type: String,
+    category: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "BlogCategory",
   required: true,
 },
+
+//    category: {
+//   type: String,
+//   required: true,
+// },
 
     description: { type: String, required: true },
 

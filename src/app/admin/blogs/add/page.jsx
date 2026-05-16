@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { categories } from "@/data/categories";
+
 
 export default function AddBlog() {
   const [categories, setCategories] = useState([]);
@@ -101,19 +101,37 @@ export default function AddBlog() {
       />
 
       {/* CATEGORY */}
-     <select
+  <select
   value={form.category}
   onChange={(e) =>
-    setForm({ ...form, category: e.target.value })
+    setForm({
+      ...form,
+      category: e.target.value
+    })
   }
+  style={{
+    display: 'block',
+    marginBottom: '15px',
+    padding: '8px',
+    width: '300px'
+  }}
 >
-  <option value="">Select Category</option>
 
-  {categories.map((cat, i) => (
-    <option key={i} value={cat}>
-      {cat}
+  <option value="">
+    Select Category
+  </option>
+
+  {categories.map((cat) => (
+
+    <option
+      key={cat._id}
+      value={cat._id}
+    >
+      {cat.name}
     </option>
+
   ))}
+
 </select>
 
       {/* DESCRIPTION */}
@@ -169,96 +187,3 @@ export default function AddBlog() {
 
 
 
-// 'use client';
-// import { useEffect, useState } from 'react';
-// import toast from 'react-hot-toast';
-
-
-// export default function AddBlog() {
-//   const [categories, setCategories] = useState([]);
-
-//   const [form, setForm] = useState({
-//     title: '',
-//     category: '',
-//     description: '',
-//   });
-
-//   const [images, setImages] = useState([]);
-
-//   useEffect(() => {
-//     fetch('/api/blog-category')
-//       .then(res => res.json())
-//       .then(data => setCategories(data.data));
-//   }, []);
-
-//   const handleSubmit = async () => {
-//     if (!form.title || !form.category || !form.description) {
-//       return alert("Fill all fields");
-//     }
-
-//     const formData = new FormData();
-
-//     formData.append("title", form.title);
-//     formData.append("category", form.category);
-//     formData.append("description", form.description);
-
-//     images.forEach(img => {
-//       formData.append("images", img);
-//     });
-
-//     const res = await fetch('/api/blog', {
-//       method: 'POST',
-//       body: formData,
-//     });
-
-//     const result = await res.json();
-
-//     if (result.success) {
-//       alert("Blog added");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Add Blog</h1>
-
-//       <input
-//         placeholder="Title"
-//         onChange={(e) => setForm({ ...form, title: e.target.value })}
-//       />
-
-//       <br /><br />
-
-//       <select
-//         onChange={(e) => setForm({ ...form, category: e.target.value })}
-//       >
-//         <option value="">Select Category</option>
-
-//         {categories.map(cat => (
-//           <option key={cat._id} value={cat._id}>
-//             {cat.name}
-//           </option>
-//         ))}
-//       </select>
-
-//       <br /><br />
-
-//       <textarea
-//         placeholder="Description"
-//         onChange={(e) => setForm({ ...form, description: e.target.value })}
-//       />
-
-//       <br /><br />
-
-//       <input
-//         type="file"
-//         multiple
-//         onChange={(e) => setImages([...e.target.files])}
-//       />
-
-//       <br /><br />
-
-//       <button onClick={handleSubmit}>Submit</button>
-//     </div>
-//   );
-// }

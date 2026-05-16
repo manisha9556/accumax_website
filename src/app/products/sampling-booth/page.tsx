@@ -5,100 +5,88 @@ import Footer from '@/components/Footer/Footer';
 import ChatWidget from '@/components/ChatWidget/ChatWidget';
 import ProductSidebar from '@/components/ProductSidebar/ProductSidebar';
 
-import styles from '../../page.module.css';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Dynamic Pass Box Straight Doors | Accumax India',
-
+  title: 'Reverse Laminar Air Flow Booth | Accumax India',
   description:
-    'Dynamic Pass Box systems by Accumax India designed for material transfer in cleanroom environments.',
+    'Reverse Laminar Air Flow Booth manufactured by Accumax India for contamination-free sampling and dispensing operations.',
 };
 
 const specifications = [
   {
-    label: 'Body Material',
-    value:
-      'Stainless Steel 304 / Stainless Steel 316 / Powder Coated GI',
-  },
-
-  {
-    label: 'Door Type',
-    value:
-      'Interlocked Doors with Magnetic Locking',
-  },
-
-  {
     label: 'Construction',
     value:
-      'Double Wall Construction',
+      'Stainless Steel 304 / Powder Coated GI',
   },
-
   {
-    label: 'Viewing Panel',
+    label: 'HEPA Filter',
     value:
-      'Transparent Toughened Glass',
+      '99.97% Efficiency Down To 0.3 Micron',
   },
-
   {
-    label: 'UV Light',
+    label: 'Pre Filter',
     value:
-      'Optional UV Germicidal Light',
+      'Washable Synthetic Pre-Filter',
   },
-
   {
-    label: 'Operation',
+    label: 'Air Flow',
     value:
-      'Manual / Automatic',
+      'Reverse Vertical Laminar Air Flow',
   },
-
+  {
+    label: 'Motor Blower',
+    value:
+      'Heavy Duty Dynamic Balanced Blower',
+  },
+  {
+    label: 'Illumination',
+    value:
+      'LED Light',
+  },
+  {
+    label: 'Pressure Gauge',
+    value:
+      'Magnahelic Pressure Gauge',
+  },
+  {
+    label: 'Noise Level',
+    value:
+      'Less Than 65 dB',
+  },
   {
     label: 'Power Supply',
     value:
       '220V AC Single Phase',
   },
-
   {
-    label: 'Finish',
+    label: 'Optional',
     value:
-      'Matt / Mirror Finish',
-  },
-
-  {
-    label: 'Applications',
-    value:
-      'Pharmaceutical, Electronics, Laboratories, Food Industries',
+      'UV Light / Differential Pressure Monitor',
   },
 ];
 
 const features = [
-  'Smooth contamination-free material transfer',
-
-  'Magnetic door interlocking system',
-
-  'Heavy-duty stainless steel construction',
-
+  'Contamination-free sampling environment',
+  'Reverse laminar airflow technology',
+  'Heavy duty blower assembly',
+  'Low noise operation',
+  'High efficiency HEPA filtration',
   'Easy cleaning and maintenance',
-
-  'Corrosion resistant body',
-
-  'Optional UV sterilization system',
+  'Energy efficient system',
 ];
 
 const applications = [
-  'Pharmaceutical cleanrooms',
-
+  'Pharmaceutical industries',
+  'Sampling operations',
+  'Dispensing processes',
   'Research laboratories',
-
-  'Electronics manufacturing',
-
-  'Food processing industries',
-
-  'Biotechnology facilities',
-
-  'Sterile production environments',
+  'Food processing industry',
+  'Chemical industries',
+  'Cleanroom environments',
 ];
 
-export default function DynamicStraightDoor() {
+export default function SamplingBoothPage() {
 
   return (
 
@@ -117,8 +105,8 @@ export default function DynamicStraightDoor() {
             <div className={styles.imageWrap}>
 
               <img
-                src="/assets/products/DynamicStraightEntry.jpeg"
-                alt="Dynamic Pass Box Straight Doors"
+                src="/assets/products/SAMPLING_BOOTH.jpeg"
+                alt="Reverse Laminar Air Flow Booth"
                 className={styles.heroImage}
               />
 
@@ -131,13 +119,14 @@ export default function DynamicStraightDoor() {
               </div>
 
               <h1 className={styles.title}>
-                Dynamic Pass Box Straight Doors
+                Reverse Laminar Air Flow Booth
               </h1>
 
               <p className={styles.lead}>
-                Dynamic Pass Boxes are specially designed for safe and efficient
-                material transfer between controlled cleanroom environments
-                without allowing contaminants to enter the clean area.
+                Reverse Laminar Air Flow Booths are designed
+                to provide contamination-free environments
+                for sampling and dispensing operations in
+                pharmaceutical and cleanroom industries.
               </p>
 
             </div>
@@ -166,21 +155,31 @@ export default function DynamicStraightDoor() {
                     </div>
 
                     <h2 className={styles.sectionTitle}>
-                      Reliable contamination control solution
+                      Sampling / Dispensing Booth System
                     </h2>
 
                   </div>
 
                   <p className={styles.description}>
-                    Accumax India Dynamic Pass Boxes are manufactured using premium
-                    quality stainless steel and advanced engineering standards to
-                    ensure safe material transfer between cleanroom zones.
+                    Accumax India Reverse Laminar Air Flow Booths are
+                    specially designed to provide contamination-free
+                    environments during sampling and dispensing
+                    operations in pharmaceutical and industrial
+                    cleanroom applications.
                   </p>
 
                   <p className={styles.description}>
-                    These pass boxes help minimize operator movement and significantly
-                    reduce the risk of airborne contamination in pharmaceutical,
-                    biotechnology, electronics, and laboratory environments.
+                    The system uses reverse vertical laminar airflow
+                    technology with HEPA filtration to remove airborne
+                    particles and maintain a safe and sterile working
+                    area for operators and products.
+                  </p>
+
+                  <p className={styles.description}>
+                    These booths are widely used in pharmaceutical,
+                    food, chemical, and biotechnology industries where
+                    contamination control and operator protection are
+                    essential.
                   </p>
 
                 </div>

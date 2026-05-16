@@ -56,11 +56,11 @@ export async function POST(req) {
 export async function GET() {
   try {
     await connectDB();
-    const blogs = await Blog.find().sort({ createdAt: -1 });
+    // const blogs = await Blog.find().sort({ createdAt: -1 });
 
-    // const blogs = await Blog.find()
-    //   .populate("category") // ✅ now works
-    //   .sort({ createdAt: -1 });
+    const blogs = await Blog.find()
+      .populate("category") // ✅ now works
+      .sort({ createdAt: -1 });
 
     return Response.json({
       success: true,
