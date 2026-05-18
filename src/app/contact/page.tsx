@@ -103,7 +103,7 @@ export default function ContactPage() {
             <span>📧</span>
             <div>
               <h4>Email</h4>
-              <p>accumax101@gmail.com</p>
+              <p>accumax105@gmail.com</p>
             </div>
           </div>
 

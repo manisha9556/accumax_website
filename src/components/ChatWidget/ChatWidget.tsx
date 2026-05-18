@@ -49,7 +49,7 @@ export default function ChatWidget() {
     ) {
       return `You can contact us:
 📞 +91 83840 62994
-📧 accumax101@gmail.com`;
+📧 accumax105@gmail.com`;
     }
 
     if (lower.includes('hi') || lower.includes('hello')) {

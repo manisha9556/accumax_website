@@ -8,6 +8,7 @@ import styles from './Header.module.css';
 import Dropdown from '../Dropdown/Dropdown';
 import { menuData } from '../Navbar/MenuData';
 
+
 type MenuItem = {
   title: string;
   href?: string;
@@ -66,13 +67,13 @@ export default function Header() {
     };
   }, []);
 
-useEffect(() => {
-  document.body.style.overflow = menuOpen ? 'hidden' : '';
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
 
-  return () => {
-    document.body.style.overflow = '';
-  };
-}, [menuOpen]);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   const handleNavClick = (href: string) => {
     setActiveLink(href);
@@ -120,8 +121,8 @@ useEffect(() => {
         {/* TOP BAR */}
         <div className={styles.topBar}>
           <div className={styles.topBarInner}>
-            <a href="mailto:accumax101@gmail.com" className={styles.topBarLink}>
-              accumax101@gmail.com
+            <a href="mailto:accumax105@gmail.com" className={styles.topBarLink}>
+              accumax105@gmail.com
             </a>
             <span className={styles.topBarDivider}>|</span>
             <a href="tel:+918384062994" className={styles.topBarLink}>
@@ -134,7 +135,11 @@ useEffect(() => {
         <div className={styles.inner}>
 
           {/* LOGO */}
-          <Link href="/" className={styles.logo}>
+          <Link
+            href="/"
+            className={styles.logo}
+            onClick={closeMobileMenu}
+          >
             <Image
               src="/assets/accumax-india1.png"
               alt="Accumax India"
@@ -180,7 +185,7 @@ useEffect(() => {
 
           {/* RIGHT SIDE */}
           <div className={styles.right}>
-            <a href="mailto:accumax101@gmail.com" className={styles.ctaButton}>
+            <a href="mailto:accumax105@gmail.com" className={styles.ctaButton}>
               Get a Quote →
             </a>
 
@@ -199,14 +204,18 @@ useEffect(() => {
       {/* MOBILE MENU */}
       <div className={`${styles.drawer} ${menuOpen ? styles.drawerOpen : ''}`}>
 
-        <div className={styles.drawerLogoWrap}>
+        <Link
+          href="/"
+          className={styles.drawerLogoWrap}
+          onClick={closeMobileMenu}
+        >
           <Image
             src="/assets/accumax-india1.png"
             alt="Accumax India"
             width={160}
             height={48}
           />
-        </div>
+        </Link>
 
         <nav className={styles.drawerNav}>
 
@@ -218,9 +227,8 @@ useEffect(() => {
           </button>
 
           <div
-            className={`${styles.drawerProductsPanel} ${
-              mobileProductsOpen ? styles.drawerProductsPanelOpen : ''
-            }`}
+            className={`${styles.drawerProductsPanel} ${mobileProductsOpen ? styles.drawerProductsPanelOpen : ''
+              }`}
           >
             <div className={styles.drawerProductsPanelInner}>
               {renderDrawerProducts(productMenu)}

@@ -159,17 +159,51 @@ export default function ProductEditor({
       specifications: [...prev.specifications, createEmptySpecification()],
     }));
   };
+const removeSpecification = (index) => {
+  setForm((prev) => ({
+    ...prev,
+    specifications:
+      prev.specifications.length > 1
+        ? prev.specifications.filter((_, itemIndex) => itemIndex !== index)
+        : [createEmptySpecification()],
+  }));
+};
 
-  const removeSpecification = (index) => {
-    setForm((prev) => ({
-      ...prev,
-      specifications:
-        prev.specifications.length > 1
-          ? prev.specifications.filter((_, itemIndex) => itemIndex !== index)
-          : [createEmptySpecification()],
-    }));
-  };
+const handleBulkSpecificationPaste = (value) => {
+  const lines = value
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
 
+  const specs = [];
+
+  lines.forEach((line) => {
+    // remove numbering like 1, 2, 3
+    line = line.replace(/^\d+\s*/, '');
+
+    // split by multiple spaces or tabs
+    const parts = line.split(/\s{2,}|\t+/);
+
+    if (parts.length >= 2) {
+      const label = parts[0].trim();
+      const value = parts.slice(1).join(' ').trim();
+
+      specs.push({
+        label,
+        value,
+      });
+    }
+  });
+
+  setForm((prev) => ({
+    ...prev,
+    specifications:
+      specs.length > 0
+        ? specs
+        : [createEmptySpecification()],
+  }));
+};
+ 
   const handleSubmit = async () => {
     if (!form.title || !form.slug || !form.slugPath || !form.categoryId || !form.description) {
       alert('Please fill the required general details first.');
@@ -501,6 +535,25 @@ export default function ProductEditor({
       {activeTab === 'specifications' && (
         <div>
           <h3 style={{ marginBottom: '15px' }}>Technical Specifications</h3>
+
+<textarea
+  placeholder={`Paste specifications here
+
+Example:
+Dimensions|900x1000x2000 mm
+MOC|SS 304
+Motor|Eyaani`}
+  style={{
+    width: '100%',
+    minHeight: '180px',
+    padding: '14px',
+    marginBottom: '25px',
+    border: '1px solid #cbd5e1',
+    borderRadius: '8px',
+  }}
+  onBlur={(e) => handleBulkSpecificationPaste(e.target.value)}
+/>
+
           {form.specifications.map((specification, index) => (
             <div
               key={`specification-${index}`}

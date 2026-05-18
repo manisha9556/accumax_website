@@ -31,18 +31,18 @@
   font-size: 1.05rem;
   margin-bottom: 2rem;
 }
-
 .ctaActions {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+
+  position: relative;
+  z-index: 10;
 }
 
 .ctaBtn {
-  /* background: #fff;
-  color: var(--primary-dark); */
-  background: #0a4d8c;      
+  background: #0a4d8c;
   color: #fff;
   padding: 0.85rem 2rem;
   border-radius: 9999px;
@@ -52,6 +52,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .ctaBtn:hover {
@@ -70,6 +75,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .ctaBtnOutline:hover {

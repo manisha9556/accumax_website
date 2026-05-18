@@ -17,7 +17,7 @@
 - Universities
 
 ## Key Contact Information
-- **Email**: accumax101@gmail.com
+- **Email**: accumax105@gmail.com
 - **Phone**: +91 8384062994
 
 ## Core Values & Advantages

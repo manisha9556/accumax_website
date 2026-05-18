@@ -1,6 +1,9 @@
 .features {
-  padding: 6rem 0;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+
   background: var(--background);
+
   scroll-margin-top: var(--nav-height);
 }
 
